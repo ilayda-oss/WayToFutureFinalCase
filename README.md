@@ -2,7 +2,7 @@
 Eczacıbaşı Bilişim Way To Future Staj Programı | .Net Bitirme Ödevi
 # WebApi Users Controller
 
-Bu proje, WebApi projesinde kullanıcıları yönetmek için kullanılan `UsersController` sınıfını içermektedir.
+Bu proje, WebApi projesinde kullanıcıları yönetmek için kullanılır.
 
 ## Kullanım
 
