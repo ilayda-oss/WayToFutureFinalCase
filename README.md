@@ -14,7 +14,7 @@ Kullanıcıların listesini, belirli bir kullanıcıyı veya kullanıcı oluştu
 - `UpdateUser` (PUT): Bir kullanıcıyı günceller.
 - `DeleteUser` (DELETE): Bir kullanıcıyı siler.
 - `GetUsersByName` (GET): İsimlerine göre kullanıcıları getirir.
-- `GetUsersSortedByName` (GET): İsimlerine göre kullanıcıları sıralar ve getirir.
+- `GetUsersSortedByRole` (GET): Rollerine göre kullanıcıları sıralar ve getirir.
 
 Aşağıda örnek kullanımlar gösterilmiştir:
 
@@ -34,10 +34,11 @@ Aşağıda örnek kullanımlar gösterilmiştir:
     ```
     Request Body:
     ```
-    {
-        "name": "John Doe",
-        "email": "john.doe@example.com"
-    }
+     {
+        Name = "John Doe", 
+        Email = "john.doe@example.com",
+        Role = "Administrator"
+      }
     ```
 
 - Bir kullanıcıyı güncellemek için:
@@ -63,7 +64,7 @@ Aşağıda örnek kullanımlar gösterilmiştir:
     GET /api/users/list?name={name}
     ```
 
-- İsimlerine göre sıralanmış kullanıcıları getirmek için:
+- Rollere göre sıralanmış kullanıcıları getirmek için:
     ```
     GET /api/users/list/sort
     ```
