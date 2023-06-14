@@ -100,7 +100,7 @@ namespace WebApi.Controllers
         public IActionResult GetUsersSortedByRole()
         {
             var users = _context.Users.OrderBy(u => u.Role).ToList(); // Role göre sıralıyor
-            return Ok(users);
+            return Ok(new {Message = "Kullanıcılar rolelere göre başarıyla sıralnadı", Users = users});
         }
     }
 
