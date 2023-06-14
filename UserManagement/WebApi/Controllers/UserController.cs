@@ -65,9 +65,9 @@ namespace WebApi.Controllers
             {
                 return NotFound();
             }
-            existingUser.Name = user.Name;
-            existingUser.Email = user.Email;
-            existingUser.Role = user.Role; // Rolü güncelle
+            existingUser.Name = user.Name; //İsmi güncelledik
+            existingUser.Email = user.Email; //Maili güncelledik
+            existingUser.Role = user.Role; // Rolü güncelledik
             _context.SaveChanges();
             return NoContent();
         }
@@ -75,7 +75,7 @@ namespace WebApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteUser(int id)
         {
-            var user = _context.Users.Find(id);
+            var user = _context.Users.Find(id); // Silinmek istenen id bulunuyor
             if (user == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace WebApi.Controllers
         [HttpGet("list")]
         public IActionResult GetUsersByName([FromQuery] string name)
         {
-            var users = _context.Users.Where(u => u.Name.Contains(name)).ToList();
+            var users = _context.Users.Where(u => u.Name.Contains(name)).ToList(); // Girilen isim içeride bulunuyor mu diye kontrol ediyor.
              if (users.Count == 0)
             {
                  return NotFound("Belirtilen kullanıcı bulunamadı.");
