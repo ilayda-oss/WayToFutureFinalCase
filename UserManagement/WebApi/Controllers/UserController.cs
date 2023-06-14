@@ -32,7 +32,7 @@ namespace WebApi.Controllers
             var user = _context.Users.Find(id); 
             if (user == null)
             {
-                return NotFound();
+                return NotFound("Belirtilen kullanıcı bulunamadı.");
             }
             return Ok(user);
         }
@@ -46,7 +46,7 @@ namespace WebApi.Controllers
             }
             if (!Enum.IsDefined(typeof(UserRole),(user.Role)))
             {
-                return BadRequest("Geçersiz bir kullanıcı rolü belirtildi.");
+                return BadRequest();
             }
             _context.Users.Add(user);
             _context.SaveChanges();
@@ -63,7 +63,7 @@ namespace WebApi.Controllers
             var existingUser = _context.Users.Find(id);
             if (existingUser == null)
             {
-                return NotFound();
+                return NotFound("Böyle bir id bulunamadı.");
             }
             existingUser.Name = user.Name; //İsmi güncelledik
             existingUser.Email = user.Email; //Maili güncelledik
@@ -78,11 +78,11 @@ namespace WebApi.Controllers
             var user = _context.Users.Find(id); // Silinmek istenen id bulunuyor
             if (user == null)
             {
-                return NotFound();
+                return NotFound("Böyle bir id bulunamadı.");
             }
             _context.Users.Remove(user);
             _context.SaveChanges();
-            return NoContent();
+            return Ok("Kullanıcı başarıyla silindi.");
         }
 
         [HttpGet("list")]
@@ -100,7 +100,7 @@ namespace WebApi.Controllers
         public IActionResult GetUsersSortedByRole()
         {
             var users = _context.Users.OrderBy(u => u.Role).ToList(); // Role göre sıralıyor
-            return Ok(new {Message = "Kullanıcılar rolelere göre başarıyla sıralnadı", Users = users});
+            return Ok(new {Message = "Kullanıcılar rollere göre başarıyla sıralandı", Users = users});
         }
     }
 
