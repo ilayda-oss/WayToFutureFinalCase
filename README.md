@@ -1,6 +1,6 @@
 # WayToFutureFinalCase
 Eczacıbaşı Bilişim Way To Future Staj Programı | .Net Bitirme Ödevi
-# WebApi Users Controller
+# WebApi Users Management
 
 Bu proje, WebApi projesinde kullanıcıları yönetmek için kullanılır.
 
